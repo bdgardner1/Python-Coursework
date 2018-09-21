@@ -7,10 +7,10 @@ import csv
 environment = []
 neighbourhood = 20
 num_of_agents = 10
-num_of_foxes = 3
+num_sheep_dogs = 3
 num_of_iterations = 1000
 agents = []
-foxes = []
+sheep_dogs = []
 
 f = open('in.txt', newline='') 
 reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
@@ -34,8 +34,8 @@ for i in range(num_of_agents):
      agents.append(agentframework.Agent(environment, agents))
 
 # Move the agents.
-for i in range(num_of_foxes):
-    foxes.append(agentframework.Fox(agents, num_of_agents))
+for i in range(num_sheep_dogs):
+    sheep_dogs.append(agentframework.sheep_dog(agents, num_of_agents))
 
 for j in range(num_of_iterations):
         
@@ -49,9 +49,9 @@ for j in range(num_of_iterations):
             agents[i].eat()
             agents[i].share_with_neighbours(neighbourhood)
         
-        for i in range(num_of_foxes):
-            foxes[i].move()
-            foxes[i].hunt_sheep(num_of_agents)
+        for i in range(num_sheep_dogs):
+            sheep_dogs[i].move()
+            sheep_dogs[i].herd_sheep(num_of_agents)
             
         for i in range(num_of_agents):
             matplotlib.pyplot.scatter(agents[i].x,agents[i].y)
@@ -59,8 +59,8 @@ for j in range(num_of_iterations):
             matplotlib.pyplot.ylim(0, 99)
             matplotlib.pyplot.imshow(environment)
             
-        for i in range(num_of_foxes):
-            matplotlib.pyplot.scatter(foxes[i].x,foxes[i].y, color='black')
+        for i in range(num_sheep_dogs):
+            matplotlib.pyplot.scatter(sheep_dogs[i].x,sheep_dogs[i].y, color='black')
             matplotlib.pyplot.xlim(0, 99)
             matplotlib.pyplot.ylim(0, 99)
             matplotlib.pyplot.imshow(environment)

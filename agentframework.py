@@ -1,5 +1,5 @@
 import random
-class Fox():
+class sheep_dog():
     def __init__ (self, agents, num_of_agents):
         self.x = 50
         self.y = 50
@@ -9,15 +9,15 @@ class Fox():
     def move(self):
         if self.store > 20:
             if random.random() < 0.5:
-                self.x = (self.x + 2) % 100
+                self.x = (self.x + 3) % 100
             else:
-               self.x = (self.x - 2) % 100
+               self.x = (self.x - 3) % 100
             if random.random() < 0.5:
-                self.y = (self.y + 2) % 100
+                self.y = (self.y + 3) % 100
             else:
-               self.y = (self.y - 2) % 100  
-            self.store -= 2
-    def hunt_sheep(self,num_of_agents):
+               self.y = (self.y - 3) % 100  
+            self.store -= 3
+    def herd_sheep(self,num_of_agents):
         for agent in self.agents:
             dist = self.distancetosheep(agent)
             print (dist)
