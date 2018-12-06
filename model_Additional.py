@@ -13,7 +13,7 @@ num_of_iterations = 1000
 agents = []
 sheep_dogs = []
 f = open('in.txt', newline='') 
-#Import csv of environment data
+#Import existing environment data as csv and create list
 reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
 
 for row in reader:				# A list of rows
@@ -44,7 +44,7 @@ for j in range(num_of_iterations):
     def update(frame_number):
  
         fig.clear()  
-  # Moves sheep. They eat the grass after the move and share with any neigbouring sheep what they have eaten.  
+  # Moves sheep. Eat the grass after the move and share with any neigbouring sheep what they encounter.  
         for i in range(num_of_agents):
             random.shuffle(agents[i].agents)
             agents[i].move()
@@ -54,13 +54,13 @@ for j in range(num_of_iterations):
         for i in range(num_sheep_dogs):
             sheep_dogs[i].move()
             sheep_dogs[i].herd_sheep(num_of_agents)
-  # Load agents into plot and update environment        
+  # Load agents into plot. Shows environment data.        
         for i in range(num_of_agents):
             matplotlib.pyplot.scatter(agents[i].x,agents[i].y, color = 'white')
             matplotlib.pyplot.xlim(0, 99)
             matplotlib.pyplot.ylim(0, 99)
             matplotlib.pyplot.imshow(environment)
-   # Load sheep dog into plot and update environment        
+   # Load sheep dog into plot and shows environment        
         for i in range(num_sheep_dogs):
             matplotlib.pyplot.scatter(sheep_dogs[i].x,sheep_dogs[i].y, color='black')
             matplotlib.pyplot.xlim(0, 99)
