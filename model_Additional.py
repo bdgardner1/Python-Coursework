@@ -56,7 +56,7 @@ for j in range(num_of_iterations):
             sheep_dogs[i].herd_sheep(num_of_agents)
   # Load agents into plot and update environment        
         for i in range(num_of_agents):
-            matplotlib.pyplot.scatter(agents[i].x,agents[i].y)
+            matplotlib.pyplot.scatter(agents[i].x,agents[i].y, color = 'white')
             matplotlib.pyplot.xlim(0, 99)
             matplotlib.pyplot.ylim(0, 99)
             matplotlib.pyplot.imshow(environment)
